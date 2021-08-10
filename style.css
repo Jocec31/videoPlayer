@@ -1,0 +1,175 @@
+*,
+::before,
+::after {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	width: 100%;
+	height: 100vh;
+	background-color: #333;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* CONTAINER */
+.container {
+	/* background-color: pink; */
+	position: relative;
+	width: 80%;
+	overflow: hidden;
+}
+#myVideo {
+	width: 100%;
+	border-radius: 1em 1em 0 0;
+}
+
+#myVideo:hover {
+	cursor: pointer;
+}
+.controls {
+	padding: 0.6em;
+	display: flex;
+	flex-wrap: wrap;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	transform: translateY(90%);
+	transition: all 0.2s;
+}
+/* faire remonter la barre des controls au hover */
+.container:hover .controls {
+	transform: translateY(0);
+}
+/* STYLE ORANGE-BAR */
+.orange-bar {
+	width: 100%;
+	height: 3px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.orange-bar:hover {
+	cursor: pointer;
+}
+
+.juice {
+	background-color: orange;
+	width: 0;
+	height: 100%;
+}
+/* STYLE BOUTONS */
+.buttons-group {
+	margin-top: 0.5em;
+	position: relative;
+	/* background-color: pink; */
+	width: 100%;
+}
+.buttons-group button {
+	padding: 0.5em;
+	position: relative;
+}
+.buttons-group button:hover {
+	cursor: pointer;
+}
+#play-pause,
+#full-screen,
+#mute {
+	width: 30px;
+	height: 30px;
+	background-color: transparent;
+	position: relative;
+	border: 1px solid whitesmoke;
+	outline: 0;
+	border-radius: 3px;
+	margin-right: 1em;
+}
+#play-pause {
+	margin-left: 1em;
+}
+#full-screen {
+	position: absolute;
+	right: 0;
+}
+#play-pause img,
+#full-screen img,
+#mute img {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+span {
+	display: block;
+	color: whitesmoke;
+	position: absolute;
+	top: 50%;
+	left: 20%;
+	transform: translate(-50%, -50%);
+}
+input[type="range"] {
+	margin-left: 1em;
+	width: 30%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+input[type="range"]:hover {
+	cursor: pointer;
+}
+.volume-level {
+	position: absolute;
+	top: 50%;
+	left: 70%;
+	transform: translate(-50%, -50%);
+}
+/* MEDIA QUERIES */
+@media screen and (max-width: 767px) {
+	.container {
+		width: 100%;
+	}
+	.controls {
+		padding: 0.2em 0.2em 0.5em 0.2em;
+	}
+	.orange-bar {
+		height: 2px;
+	}
+	.buttons-group {
+		margin-top: 0.3em;
+	}
+	#play-pause,
+	#full-screen,
+	#mute {
+		width: 20px;
+		height: 20px;
+		margin-right: 0.3em;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	#play-pause {
+		margin-left: 0.3em;
+	}
+	#full-screen {
+		margin-top: 0.3em;
+	}
+	span {
+		left: 30%;
+		top: 60%;
+	}
+	input[type="range"] {
+		top: 60%;
+	}
+}
+@media screen and (max-width: 600px) {
+	.volume-level {
+		left: 75%;
+		top: 60%;
+	}
+}
