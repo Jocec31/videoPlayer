@@ -115,13 +115,22 @@ function changeVolume() {
 }
 volumeSlider.addEventListener("change", changeVolume);
 
-// 6 - Gestion du FULLSCREEN
+// 6 - Gestion du FULLSCREEN pour les navigateurs principaux google - safari - firefox
 function toggleFullScreen() {
 	if (!document.fullscreenElement) {
-		video.requestFullscreen();
+		// SI FIREFOX
+		if (navigator.userAgent.indexOf("Firefox") !== -1) {
+			video.mozRequestFullScreen();
+		} else {
+			// pour google et safari
+			video.webkitEnterFullScreen();
+		}
 	} else {
-		if (document.exitFullscreen) {
-			video.exitFullscreen();
+		if (navigator.userAgent.indexOf("Firefox") !== -1) {
+			document.mozCancelFullScreen();
+		} else {
+			// pour google et safari
+			document.exitFullscreen();
 		}
 	}
 }
